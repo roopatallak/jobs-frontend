@@ -1,0 +1,17 @@
+<div class="main-header">
+    <nav>
+      <!-- <strong>This is the navigation</strong> -->
+      <a class="navlink" href="admin/candidates"> Manage Candidates </a> 
+      <!-- <a class="navlink" href="admin/add-job"> Add New Job </a> -->
+      <a class="navlink" href="admin/status"> Status Report </a>
+      <a class="navlink" href="admin/admin-job"> Manage Job Listings </a>
+      <span *ngIf="shouldShowLogin(); else logoutButton">
+      <a class="navlink" href="admin/admin-login"> Login </a>
+    </span>
+     </nav>
+</div>
+
+<ng-template #logoutButton>
+  <a class="navlink" href="admin/admin-login" (click)="logout()"> Logout </a>
+  <span style="float:right;">{{getWelcomeMsg()}}</span>
+</ng-template>

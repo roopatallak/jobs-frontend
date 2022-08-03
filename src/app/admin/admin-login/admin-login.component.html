@@ -1,0 +1,38 @@
+<app-admin-nav></app-admin-nav>
+<h2 align="center">Please login</h2>
+<br>
+<div id="roundcorner">
+  <div id="errordiv"></div>
+<!-- <form action=""> -->
+  <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+  <label for="username">Username: </label>
+  <em *ngIf="usernamevar.invalid && usernamevar.touched">
+   *Required
+  </em>
+
+  <input class="form-control" id="username"
+    name="username" type="text" placeholder="username" 
+     [(ngModel)]="username"
+     required
+      #usernamevar="ngModel">
+     <!-- <div [hidden]="usernamevar.valid || usernamevar.pristine"
+      class="alert alert-danger">
+       Username is required
+     </div> -->
+  <label for="password">Password: </label>
+  <input class="form-control" name="password" type="password" 
+    placeholder="password" 
+    [(ngModel)]="password"
+    required
+     #passwordvar="ngModel">
+    <div [hidden]="passwordvar.valid || passwordvar.pristine"
+      class="alert alert-danger">
+      Password is required
+     </div>
+  <div align="center">
+  <!-- <button class="custombutton" (click)="submit()">Submit</button> -->
+  <button type="submit" [disabled]="loginForm.invalid" class="custombutton">Submit</button>
+</div>
+</form>
+
+</div>

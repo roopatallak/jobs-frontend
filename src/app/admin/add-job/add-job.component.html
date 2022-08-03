@@ -1,0 +1,42 @@
+<app-admin-nav></app-admin-nav>
+<br>
+<h2 align="center">Add a new job listing</h2>
+<br>
+<div id="roundcorner">
+
+<form>
+    <div>
+      <span>
+      <label for="title">Job Title</label>
+      <input class="inputclass" type="text" [(ngModel)]="jsonJob.title" id="title" name="title">
+    </span>
+    <span>
+      <label for="description">Description</label>
+      <input class="inputclass" type="text" 
+         [(ngModel)]="jsonJob.description" 
+         id="description" name="description">
+    </span>
+    <span>
+      <label for="skills">Skills</label>
+      <input class="inputclass" type="text" 
+         [(ngModel)]="jsonJob.skills" 
+         id="skills" name="skills">
+    </span>
+    <span>
+      <label for="experience">Experience</label>
+      <select class="selectclass" id="experience" name="experience"
+           [(ngModel)]="jsonJob.experience" 
+           required #experience="ngModel">
+           <option *ngFor="let exp of experienceList"  [value]="exp">{{exp}}</option>
+           <div [hidden]="experience.valid || experience.pristine"
+           class="alert alert-danger">
+           Experience is required
+          </div>
+        </select>
+      </span>
+      <span>
+      <button  align="center" class="custombutton" (click)="submit()">Submit</button>
+    </span>
+    </div>
+  </form>
+</div>

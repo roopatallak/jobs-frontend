@@ -1,0 +1,49 @@
+<app-main-nav></app-main-nav>
+<div id="tablecontainer">
+    <Table id="displaytable">
+    <thead>
+        <tr>
+            <!-- <th>
+                Job id
+            </th> -->
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Skills Required
+            </th>
+            <th>
+                Experience Required
+            </th>
+            <th>
+                Application
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let job of jobs">
+            <!-- <td>
+                {{job.jobId}}
+            </td> -->
+            <td>
+                {{job.title}}
+            </td>
+            <td>
+                {{job.description}}
+            </td>
+            <td>
+                {{job.skills}}
+            </td>
+            <td>
+                {{job.experience}}
+            </td>
+            <td>
+                <a [routerLink]="['/apply', job.jobId]">Apply</a>
+            </td>
+        </tr>
+    </tbody>
+</Table>
+</div>

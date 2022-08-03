@@ -1,0 +1,37 @@
+
+
+<div *ngIf="job">
+<h3>{{job.title}}</h3>
+<p>Required Skills: {{job.skills}}</p>
+
+<div *ngIf="job.candidateList.length > 0; else elseBlock">
+
+    <Table id="displaytable">
+    <thead>
+        <tr>
+            <th>
+                Candidates List
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let candidate of job.candidateList">
+            <td>
+                {{candidate.fname}} {{candidate.lname}}
+                <br>
+                Skills: {{candidate.skills}} 
+                <br>
+                Qualification: {{candidate.qualification}}
+                <br>
+                Experience: {{candidate.experience}}
+            </td>
+
+        </tr>
+    </tbody>
+    </Table>
+
+</div>
+<ng-template #elseBlock>
+    <h3>No candidates found</h3>
+</ng-template>
+</div>

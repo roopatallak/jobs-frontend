@@ -1,0 +1,52 @@
+<app-admin-nav></app-admin-nav>
+
+<div *ngIf="candidates.length === 0">
+    <br>
+    <h3 align="center">No results found.</h3>
+</div>
+
+<div *ngIf="candidates.length !== 0">
+<br>
+<h2 align="center">Candidates with skills:  {{selectedSkill || 'All'}}</h2>
+<div id="tablecontainer">
+    <div align="right">Filter by skills: 
+    <select name="newSkill" id="newSkill" [(ngModel)]="selectedSkill" (change)="submit()">
+    <option *ngFor="let skill of skillsList" [value]="skill" >{{ skill }}</option>
+</select>
+    <!-- <button class="filterbutton"  (click)="submit()">Filter</button> -->
+</div>
+
+
+<table id="displaytable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Qualification</th>
+            <th>Skills</th>
+            <th>Experience</th>
+            <th>Resume</th>
+            <th>Status</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let candidate of candidates">
+            <td>{{candidate.lname}}, {{candidate.fname}} </td>
+            <td>{{candidate.email}}</td>
+            <td>{{candidate.qualification}}</td>
+            <td>{{candidate.skills}}</td>
+            <td>{{candidate.experience}}</td>
+            <!-- <td>{{candidate.resumeLink}} <button (click)="viewFile(candidate.candidateId)">View</button>  </td> -->
+            <td>
+                <a [href]="getResumeUrl(candidate.candidateId)" target="_blank">
+                    View
+                </a>
+            </td>
+            <td>{{candidate.status}}</td>
+            <td><a [routerLink]="['../edit-candidate', candidate.candidateId]">Edit</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>

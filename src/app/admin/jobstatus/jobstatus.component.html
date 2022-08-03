@@ -1,0 +1,54 @@
+<app-admin-nav></app-admin-nav>
+
+<div *ngIf="jobStatus == undefined ||  jobStatus.length === 0">
+    <br>
+    <h3 align="center">No results found.</h3>
+</div>
+
+<!-- <div *ngIf="jobStatus.items.length > 0"> -->
+
+<h2 align="center">Status Report</h2>
+<div id="tablecontainer">
+
+<table id="displaytable">
+    <thead>
+        <th>
+            Job Title
+        </th>
+        <th>
+            Screen
+        </th>
+        <th>
+            Interview
+        </th>
+        <th>
+            Hire
+        </th>
+        <th>
+            Offer
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let status of jobStatus">
+            <td>
+                {{status.title}}
+            </td>
+            <td>
+                {{status.screen}}
+            </td>
+            <td>
+                {{status.interview}}
+            </td>
+            <td>
+                {{status.hire}}
+            </td>
+            <td>
+                {{status.offer}}
+            </td>
+
+        </tr>
+
+    </tbody>
+</table>
+</div>
+<!-- </div> -->

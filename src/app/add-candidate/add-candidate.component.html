@@ -1,0 +1,125 @@
+<app-main-nav></app-main-nav>
+<h3 align="center">Enter details</h3>
+<div id="roundcorner">
+  
+  <form #candidateForm="ngForm" (ngSubmit)="submit()" autocomplete="off">
+    <div class="form-group">
+    <label for="fname">First Name</label>
+    <!-- <input class="inputclass" type="text" [(ngModel)]="formData.fname" id="fname" name="fname"> -->
+    <em *ngIf="fnamevar.invalid && fnamevar.touched " >
+      *Required
+     </em>
+     <em *ngIf=""></em>
+       <input type="text" class="form-control" id="fname"
+           required
+           [(ngModel)]="formData.fname" name="fname"
+           #fnamevar="ngModel">
+        <!-- <div [hidden]="fname.valid || fname.pristine"
+         class="alert alert-danger">
+          First name is required
+        </div> -->
+      </div>
+    
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <!-- <input  class="inputclass" type="text" [(ngModel)]="formData.lname" name="lname"> -->
+        <input type="text" class="form-control" id="lname"
+               required
+               [(ngModel)]="formData.lname" name="lname"
+               #lname="ngModel">
+            <div [hidden]="lname.valid || lname.pristine"
+             class="alert alert-danger">
+              Last name is required
+            </div>
+          </div>
+    
+
+  <!-- <div>
+    <label for="">Last Name</label>
+    <input  class="inputclass" type="text" [(ngModel)]="formData.lname" name="lname">
+  </div> -->
+  <div class="form-group">
+    <label for="email">Email</label>
+    <small> (id@mail.com)</small>
+    <input  class="form-control" type="email" name="email" 
+      [(ngModel)]="formData.email"
+      required
+      #email="ngModel"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <div [hidden]="email.valid || email.pristine"
+       class="alert alert-danger">
+        Please enter valid email id
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone
+    </label>
+    <small>(123-456-7890)</small>
+    <input  class="form-control" type="tel" name="phone" 
+        [(ngModel)]="formData.phone"
+        required
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        #phone="ngModel">
+        <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"> -->
+        <div [hidden]="phone.valid || phone.pristine"
+         class="alert alert-danger">
+          Please enter valid phone num
+        </div>
+      </div>
+  
+
+  <div class="form-group">
+    <label for="skills">Skills</label>
+    <input  class="form-control" id="skills" 
+      type="text" name="skills" 
+      [(ngModel)]="formData.skills" 
+      required
+      #skills="ngModel">
+      <div [hidden]="skills.valid || skills.pristine"
+       class="alert alert-danger">
+        Skills is required
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="qualification">Qualification</label>
+    <select class="selectclass" id="qualification" name="qualification"
+         [(ngModel)]="formData.qualification" 
+         required #qualification="ngModel">
+         <option *ngFor="let qual of qualifications"  [value]="qual">{{qual}}</option>
+         <div [hidden]="qualification.valid || qualification.pristine"
+         class="alert alert-danger">
+         Qualification is required
+        </div>
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="experience">Experience</label>
+    <select class="selectclass" id="experience" name="experience"
+         [(ngModel)]="formData.experience" 
+         required #experience="ngModel">
+         <option *ngFor="let exp of experienceList"  [value]="exp">{{exp}}</option>
+         <div [hidden]="experience.valid || experience.pristine"
+         class="alert alert-danger">
+         Experience is required
+        </div>
+      </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="resume">Upload Resume</label>
+    <input  class="form-control" id="resume" type="file" (change)="handleFileChange($event)" 
+       name="resume" required>
+  </div>
+  
+  <div  align="center">
+    <!-- <button class="custombutton" type="submit" (click)="submit()">Submit</button> -->
+    <button type="submit" class="custombutton" 
+      [disabled]="!candidateForm.form.valid">Submit</button>
+      <!-- <button type="submit" class="custombutton" 
+      [disabled]="!candidateForm.form.valid">Submit</button> -->
+  </div>
+
+</form>
+</div>
+<!-- </div> -->

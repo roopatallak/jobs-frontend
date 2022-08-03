@@ -1,0 +1,45 @@
+<app-admin-nav></app-admin-nav>
+<br>
+<div *ngIf="candidate">
+    <div id="roundcorner">
+        <div><b>Manage candidate: </b>{{ candidate.fname }} {{candidate.lname}}</div>
+        <hr>
+        <p id="candidateStatusMsg"></p>
+        <table>
+            <tr>
+            <td width="70%">
+                <select class="selectclass" name="newStatus" id="newStatus" [(ngModel)]="selectedStatus">
+                <option *ngFor="let status of possibleStatuses" [value]="status">{{ status }}</option>
+                </select>
+            </td>
+            <td>
+                <button class="custombutton" (click)="submit()">Update</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Note: Remove will delete the candidate
+            </td>
+            <td>
+                <button class="custombutton" (click)="reject()">Remove</button>
+            </td>
+        </tr>
+        </table>
+        <hr>
+        <div>
+            <p id="emailStatusMsg"></p>
+            <table>
+                <td width="70%">
+                <p>Send an email to notify the candidate</p>
+            </td>
+            <td>
+            <button class="custombutton" (click)="sendEmail()">Send email</button>
+        </table>
+    </div>
+    </div>
+    <!-- <div class="container"> -->
+    <!-- </div> -->
+    <div align="center">
+        <button class="custombutton" (click)="navBack()">Back</button>
+    </div>
+</div>

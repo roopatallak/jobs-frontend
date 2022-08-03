@@ -1,0 +1,12 @@
+<app-admin-nav></app-admin-nav>
+<div class="flexcontainer">
+    <div syle="width:40%;">
+<app-list-view
+ [jobs]="jobs"
+ (selectedJobEvent)="selectedJob=$event"></app-list-view>
+</div>
+<div style="width:60%;">
+ <app-detail-view
+ [job] = "selectedJob"></app-detail-view>
+</div>
+</div>

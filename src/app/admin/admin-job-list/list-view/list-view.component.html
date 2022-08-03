@@ -1,0 +1,36 @@
+<h3 align="center">Current Job Listings</h3>
+<p align="center">
+    <a href="admin/add-job">Add a new job listing</a>
+</p>
+<!-- <div class="container">
+<ul class="listclass">
+    <li class="listitem" *ngFor="let job of jobs" (click)="selectJob(job)">
+        {{job.title}}
+    </li>
+</ul>
+</div> -->
+
+<div class="container">
+    <Table id="displaytable">
+    <thead>
+        <tr>
+            <th>
+                Job Title
+            </th>
+            <th>
+                Required Experience 
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let job of jobs"  (click)="selectJob(job)">
+                    <td>
+                        {{job.title}}
+                    </td>
+                    <td>
+                        {{job.experience}}
+                    </td>
+                    </tr>
+                    </tbody>
+                    </Table>
+        </div>
